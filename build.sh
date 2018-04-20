@@ -28,9 +28,9 @@ function buildcss {
 
 function buildhtml {
 
-  concat-cli -f src/pagetop.html dist/error.css src/pagemid.html dist/error.js src/pagebot.html -o dist/error.html
+  concat-cli -f src/pagetop.html dist/style.css src/pagemid.html dist/error.js src/pagebot.html -o dist/error.html
   rm dist/error.css
-  rm dist/error.html
+  rm dist/error.js
 }
 
 # run our functions
