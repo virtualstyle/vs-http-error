@@ -41,12 +41,12 @@ while read -r line ; do
     import=$(echo "$line" | sed 's/^url\(//g')
     importfound=1
 
-done < <(grep "\@import" src/scss/style.scss)
+done < <(grep "\@import" src/scss/error.scss)
 
 if [[ importfound -eq 1 ]]; then
   import="@import $importstring, $import"
-  sed -i "" "s/$oldimport/$import/g" src/scss/style.scss
+  sed -i "" "s/$oldimport/$import/g" src/scss/error.scss
 else
   import="@import $importstring;"
-  echo $import >> src/scss/style.scss
+  echo $import >> src/scss/error.scss
 fi
