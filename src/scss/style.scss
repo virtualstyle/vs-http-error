@@ -1,0 +1,44 @@
+//colors
+$yellow: #ff0;
+$black: #000;
+$silver: #c0c0c0;
+$color_bunker_approx: #151515;
+$color_dove_gray_approx: #6e6e6e;
+$white: #fff;
+$color_shingle_fawn_approx: #6f4e3c;
+$color_mine_shaft_approx: #333;
+$color_suva_gray_approx: #888;
+$seashell: #f1f1f1;
+$color_bon_jour_approx: #e1e1e1;
+$color_picasso_approx: #fff49b;
+$color_quill_gray_approx: #d2d2d2;
+$color_black_approx: #050505;
+$white_10: rgba(255, 255, 255, 0.1);
+$white_80: rgba(255, 255, 255, 0.8);
+$color_shark_approx: #252525;
+$color_masala_approx: #3b3b3b;
+$color_star_dust_approx: #a1a1a1;
+$color_woodsmoke_approx: #111;
+$white_30: rgba(255, 255, 255, 0.3);
+$white_3: rgba(255, 255, 255, 0.03);
+$black_50: rgba(0, 0, 0, 0.5);
+$white_20: rgba(255, 255, 255, 0.2);
+$vsblue: #3a7fad;
+$vsblue_shade: #234f6d;
+
+//fonts
+$font_0: sans-serif;
+$font_1: monospace;
+$font_2: Source Code Pro;
+$font_3: arial;
+$font_4: Consolas;
+$font_5: Andale Mono;
+$font_6: Courier;
+$font_7: Courier New;
+$font_8: FontAwesome;
+
+@import  "jquery-ui", "pure", "tbservers", "logo", "main";
+
+#vs-dark-ui .ui-dialog {
+  z-index:999999;
+}

@@ -1,0 +1,31 @@
+{
+  "name": "vs-http-error",
+  "version": "1.0.0",
+  "description": "virtualStyle static error handling page",
+  "main": "index.js",
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "concat-cli": "^4.0.0",
+    "html-minifier": "^3.5.10",
+    "image-data-uri": "^1.0.1",
+    "mustache": "^2.3.0",
+    "node-sass": "^4.7.2",
+    "uglify-js": "^3.3.14"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "./build.sh"
+  },
+  "us_virtualstyle" : {
+    "jsfiles": [
+      "src/js/modernizr.js",
+      "src/js/jquery-2.1.3.js",
+      "src/js/jquery-ui-1.12.1.js",
+      "src/js/plugins.js",
+      "src/js/main.js",
+      "src/js/error.js"
+    ],
+    "scssmaster": "src/scss/error.scss"
+  }
+}
