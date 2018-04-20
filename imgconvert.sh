@@ -19,7 +19,7 @@ for file in src/scss/{..?,.[!.],}*; do
         #echo $filename
         echo "$line" | sed -E "s/url\(.*\.(png|jpg|jpeg|gif|svg).*\)/\$$filename/g"
 
-        sed -Ei "s/url\(.*\.(png|jpg|jpeg|gif|svg).*\)/\$$filename/g" $file
+        sed -E -i "s/url\(.*\.(png|jpg|jpeg|gif|svg).*\)/\$$filename/g" $file
 
         datauri src/${images[$count]} src/scss
 
@@ -45,7 +45,7 @@ done < <(grep "\@import" src/scss/style.scss)
 
 if [[ importfound -eq 1 ]]; then
   import="$import, $importstring;"
-  sed -i "s/$oldimport/$import/g"
+  sed -i "s/$oldimport/$import/g" src/scss/style.scss
 else
   import="@import $importstring;"
   echo $import >> src/scss/style.scss

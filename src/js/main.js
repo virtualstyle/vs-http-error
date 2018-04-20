@@ -96,21 +96,6 @@
 
 
    /* --------------------------------------------------- */
-	/*  Vegas Slideshow
-	------------------------------------------------------ */
-	$(".main-content-slides").vegas({
-		transition: 'fade',
-		transitionDuration: 2500,
-		delay: 5000,
-    	slides: [
-       	{ src: "images/slides/woods.jpg" },
-        	{ src: "images/slides/greens.jpg" },
-        	{ src: "images/slides/dandelion.jpg" }
-    	]
-	});
-
-
-   /* --------------------------------------------------- */
 	/*  Particle JS
 	------------------------------------------------------ */
 	$('.main-content-particle-js').particleground({

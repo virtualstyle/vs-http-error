@@ -1646,9 +1646,6 @@ label {
 		//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
 		transform: translateX(-260px);
 	}
-	&.main-content-static {
-		background: url(slides/greens.jpg) no-repeat center/cover;
-	}
 	&.main-content-slides {
 		height: 100% !important;
 	}
