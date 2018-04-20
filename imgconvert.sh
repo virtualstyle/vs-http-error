@@ -19,7 +19,7 @@ for file in src/scss/{..?,.[!.],}*; do
         #echo $filename
         echo "$line" | sed -E "s/url\(.*\.(png|jpg|jpeg|gif|svg).*\)/\$$filename/g"
 
-        sed -E -i "s/url\(.*\.(png|jpg|jpeg|gif|svg).*\)/\$$filename/g" $file
+        sed -E -i "s/url\(.*\.(png|jpg|jpeg|gif|svg).*\)/\$${filename}/g" $file
 
         datauri src/${images[$count]} src/scss
 
