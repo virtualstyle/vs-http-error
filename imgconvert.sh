@@ -38,7 +38,7 @@ importfound=0
 while read -r line ; do
 
     oldimport=$line
-    import=$(echo "$line" | sed 's/^url\(//g')
+    import=$(echo "$line" | sed 's/^@import //g')
     importfound=1
 
 done < <(grep "\@import" src/scss/error.scss)
