@@ -902,7 +902,7 @@ body #vs-dark-ui .ui-tooltip {
 }
 #vs-dark-ui .ui-widget-content {
 	border: 1px solid #000000;
-	background: #111111 url("images/ui-bg_gloss-wave_20_111111_500x100.png") 50% top repeat-x;
+	background: #111111 $ui-bg_gloss-wave_20_111111_500x100 50% top repeat-x;
 	color: #d9d9d9;
 }
 #vs-dark-ui .ui-widget-content a {
@@ -910,7 +910,7 @@ body #vs-dark-ui .ui-tooltip {
 }
 #vs-dark-ui .ui-widget-header {
 	border: 1px solid #0b3e6f;
-	background: #0b3e6f url("images/ui-bg_diagonals-small_15_0b3e6f_40x40.png") 50% 50% repeat;
+	background: #0b3e6f $ui-bg_gloss-wave_20_111111_500x100 50% 50% repeat;
 	color: #f6f6f6;
 	font-weight: bold;
 }
@@ -930,7 +930,7 @@ works properly when clicked or hovered */
 html #vs-dark-ui .ui-button.ui-state-disabled:hover,
 html #vs-dark-ui .ui-button.ui-state-disabled:active {
 	border: 1px solid #333333;
-	background: #191919 url("images/ui-bg_dots-small_10_191919_2x2.png") 50% 50% repeat;
+	background: #191919 $ui-bg_gloss-wave_20_111111_500x100 50% 50% repeat;
 	font-weight: bold;
 	color: #ffffff;
 }
@@ -953,7 +953,7 @@ a:visited#vs-dark-ui .ui-button,
 #vs-dark-ui .ui-button:hover,
 #vs-dark-ui .ui-button:focus {
 	border: 1px solid #222222;
-	background: #00498f url("images/ui-bg_diagonals-small_15_00498f_40x40.png") 50% 50% repeat;
+	background: #00498f $ui-bg_gloss-wave_20_111111_500x100 50% 50% repeat;
 	font-weight: bold;
 	color: #ffffff;
 }
@@ -981,7 +981,7 @@ a#vs-dark-ui .ui-button:active,
 #vs-dark-ui .ui-button:active,
 #vs-dark-ui .ui-button.ui-state-active:hover {
 	border: 1px solid #096ac8;
-	background: #292929 url("images/ui-bg_dots-small_10_292929_2x2.png") 50% 50% repeat;
+	background: #292929 $ui-bg_gloss-wave_20_111111_500x100 50% 50% repeat;
 	font-weight: bold;
 	color: #75abff;
 }
@@ -1003,7 +1003,7 @@ a#vs-dark-ui .ui-button:active,
 #vs-dark-ui .ui-widget-content .ui-state-highlight,
 #vs-dark-ui .ui-widget-header .ui-state-highlight {
 	border: 1px solid #052f57;
-	background: #0b58a2 url("images/ui-bg_diagonals-small_30_0b58a2_40x40.png") 50% 50% repeat;
+	background: #0b58a2 $ui-bg_gloss-wave_20_111111_500x100 50% 50% repeat;
 	color: #ffffff;
 }
 #vs-dark-ui .ui-state-checked {
@@ -1019,7 +1019,7 @@ a#vs-dark-ui .ui-button:active,
 #vs-dark-ui .ui-widget-content .ui-state-error,
 #vs-dark-ui .ui-widget-header .ui-state-error {
 	border: 1px solid #cd0a0a;
-	background: #a32d00 url("images/ui-bg_diagonals-small_30_a32d00_40x40.png") 50% 50% repeat;
+	background: #a32d00 $ui-bg_gloss-wave_20_111111_500x100 50% 50% repeat;
 	color: #ffffff;
 }
 #vs-dark-ui .ui-state-error a,
@@ -1065,31 +1065,31 @@ a#vs-dark-ui .ui-button:active,
 }
 #vs-dark-ui .ui-icon,
 #vs-dark-ui .ui-widget-content .ui-icon {
-	background-image: url("images/ui-icons_9ccdfc_256x240.png");
+	background-image: $ui-bg_gloss-wave_20_111111_500x100;
 }
 #vs-dark-ui .ui-widget-header .ui-icon {
-	background-image: url("images/ui-icons_98d2fb_256x240.png");
+	background-image: $ui-bg_gloss-wave_20_111111_500x100;
 }
 #vs-dark-ui .ui-state-hover .ui-icon,
 #vs-dark-ui .ui-state-focus .ui-icon,
 #vs-dark-ui .ui-button:hover .ui-icon,
 #vs-dark-ui .ui-button:focus .ui-icon {
-	background-image: url("images/ui-icons_ffffff_256x240.png");
+	background-image: $ui-bg_gloss-wave_20_111111_500x100;
 }
 #vs-dark-ui .ui-state-active .ui-icon,
 #vs-dark-ui .ui-button:active .ui-icon {
-	background-image: url("images/ui-icons_0673db_256x240.png");
+	background-image: $ui-bg_gloss-wave_20_111111_500x100;
 }
 #vs-dark-ui .ui-state-highlight .ui-icon,
 #vs-dark-ui .ui-button .ui-state-highlight.ui-icon {
-	background-image: url("images/ui-icons_ffffff_256x240.png");
+	background-image: $ui-bg_gloss-wave_20_111111_500x100;
 }
 #vs-dark-ui .ui-state-error .ui-icon,
 #vs-dark-ui .ui-state-error-text .ui-icon {
-	background-image: url("images/ui-icons_ffffff_256x240.png");
+	background-image: $ui-bg_gloss-wave_20_111111_500x100;
 }
 #vs-dark-ui .ui-button .ui-icon {
-	background-image: url("images/ui-icons_9ccdfc_256x240.png");
+	background-image: $ui-bg_gloss-wave_20_111111_500x100;
 }
 
 /* positioning */

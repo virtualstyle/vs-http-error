@@ -1,5 +1,5 @@
 #tbservers {
-  background:$tbservers;
+  background: url($tbservers);
   background-size: contain;
   background-repeat:no-repeat;
   width:220px;
@@ -10,7 +10,9 @@
   z-index:99999;
   opacity:0;
 }
-
+#tbservers:hover {
+  background-image: url($tbservershover);
+}
 //@extend-elements
 //original selectors
 //sub, sup
@@ -133,7 +135,7 @@ header {
 			border: none;
 			width: 282px;
 			height: 72px;
-			background: $logo no-repeat center;
+			background: url($logo) no-repeat center;
 			background-size: 282px 72px;
 			font: 0/0 a;
 			//Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
@@ -142,6 +144,9 @@ header {
 			//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 			transition: all 0.5s ease-in-out;
 		}
+    a:hover {
+      background-image: url($logohover);
+    }
 	}
 }
 hgroup {
@@ -194,7 +199,7 @@ a {
 	background: transparent;
 	text-decoration: none;
 	line-height: inherit;
-	color: $white;
+	color: $vsblue;
 	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 	transition: all 0.3s ease-in-out;
 	&:active {
@@ -202,13 +207,14 @@ a {
 	}
 	&:hover {
 		outline: 0;
-		color: $vsblue !important;
+    text-shadow: 1px 1px 3px $vsblue
+		//color: $white !important;
 	}
 	img {
 		border: none;
 	}
 	&:visited {
-		color: $white;
+		color: $vsblue;
 		//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 		transition: all 0.3s ease-in-out;
 	}
@@ -1183,6 +1189,10 @@ input[type="password"] {
 	.main-content h1 {
 		font-size: 8.6rem;
 	}
+  #tbservers {
+    width:180px;
+    height:115px;
+  }
 }
 @media only screen and(max-width:768px) {
 	html {
@@ -1217,6 +1227,10 @@ input[type="password"] {
 	.main-content h1 {
 		font-size: 7.2rem;
 	}
+  #tbservers {
+    width:160px;
+    height:103px;
+  }
 }
 @media only screen and(max-width:400px) {
 	html {
@@ -1237,6 +1251,10 @@ input[type="password"] {
 	#main-error-content .social-links ul {
 		font-size: 2.6rem;
 	}
+  #tbservers {
+    width:140px;
+    height:90px;
+  }
 }
 .h01 {
 	font-family: $font_2, $font_0;
@@ -1414,13 +1432,13 @@ dfn[title] {
 		display: block;
 		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
 		border-radius: 50%;
-		width: 60px;
-		height: 60px;
+		width: 50px;
+		height: 50px;
   }
   &:after {
     content: ' ';
     display:block;
-    background: $logo;
+    background: url($logo);
     background-size: contain;
     background-repeat: no-repeat;
     width:282px;
@@ -1764,7 +1782,7 @@ label {
 	h1::before {
 		content: "";
 		display: block;
-		background: $color_shingle_fawn_approx;
+		background: $vsblue;
 		width: 120px;
 		height: 3px;
 		position: absolute;

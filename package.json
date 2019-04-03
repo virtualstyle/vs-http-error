@@ -7,25 +7,27 @@
   "license": "MIT",
   "devDependencies": {
     "concat-cli": "^4.0.0",
+    "datauri": "file:../vs-img-uri",
     "html-minifier": "^3.5.10",
     "image-data-uri": "^1.0.1",
+    "image-type": "^4.0.0",
     "mustache": "^2.3.0",
-    "node-sass": "^4.7.2",
-    "uglify-js": "^3.3.14"
+    "node-sass": "^4.11.0",
+    "rimraf": "^2.6.3",
+    "simple-git": "^1.110.0",
+    "uglify-js": "^3.5.3"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "./build.sh"
+    "buildimgs": "echo Create/Update image URIs. && yarn imgdata src/images/ src/scss/",
+    "buildjs": "echo Merge and uglify JS files. && uglifyjs src/js/modernizr.js src/js/jquery-2.1.3.js src/js/jquery-ui-1.12.1.js src/js/plugins.js src/js/main.js src/js/error.js --compress --mangle --output dist/error.js",
+    "buildcss": "echo Merge, minify, and compile SCSS files. && node-sass --output-style compressed -o dist/ src/scss",
+    "buildhtml": "echo Merge HTML sections, CSS, and JS files into a single file. && concat-cli -f src/pagetop.html dist/error.css src/pagemid.html dist/error.js src/pagebot.html -o dist/error.html",
+    "cleanup": "echo Cleanup intermediate files. && rm dist/error.css && rm dist/error.js",
+    "build": "yarn buildimgs && yarn buildjs && yarn buildcss && yarn buildhtml && echo Build completed.",
+    "imgdata": "node -e 'require(\"./scripts/imgconvert.js\").imageConvert(process.argv[1], process.argv[2], process.argv[3])'"
   },
-  "us_virtualstyle" : {
-    "jsfiles": [
-      "src/js/modernizr.js",
-      "src/js/jquery-2.1.3.js",
-      "src/js/jquery-ui-1.12.1.js",
-      "src/js/plugins.js",
-      "src/js/main.js",
-      "src/js/error.js"
-    ],
-    "scssmaster": "src/scss/error.scss"
+  "us_virtualstyle": {
+    "answerToEverything": 42
   }
 }

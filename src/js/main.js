@@ -99,8 +99,8 @@
 	/*  Particle JS
 	------------------------------------------------------ */
 	$('.main-content-particle-js').particleground({
-	    dotColor: '#fff',
-	    lineColor: '#555555',
+	    dotColor: '#20acf7',
+	    lineColor: '#04a0f4',
 	    particleRadius: 6,
 	    curveLines: true,
 	    density: 9000,

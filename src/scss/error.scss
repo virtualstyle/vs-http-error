@@ -37,7 +37,8 @@ $font_6: Courier;
 $font_7: Courier New;
 $font_8: FontAwesome;
 
-@import  "jquery-ui", "pure", "tbservers", "logo", "main";
+// Dynamic Import - do not edit
+@import "IMG_logo", "IMG_logohover", "IMG_tbservers", "IMG_tbservershover", "IMG_ui-bg_diagonals-small_15_00498f_40x40", "IMG_ui-bg_diagonals-small_15_0b3e6f_40x40", "IMG_ui-bg_diagonals-small_30_0b58a2_40x40", "IMG_ui-bg_diagonals-small_30_a32d00_40x40", "IMG_ui-bg_dots-small_10_191919_2x2", "IMG_ui-bg_dots-small_10_292929_2x2", "IMG_ui-bg_gloss-wave_20_111111_500x100", "IMG_ui-icons_0673db_256x240", "IMG_ui-icons_98d2fb_256x240", "IMG_ui-icons_9ccdfc_256x240", "IMG_ui-icons_ffffff_256x240", "jquery-ui", "pure", "main";
 
 #vs-dark-ui .ui-dialog {
   z-index:999999;
