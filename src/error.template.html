@@ -10,8 +10,11 @@
   <title>HTTP ERROR</title>
   <meta name="description" content="There was an error processing this request.">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <link rel="icon" type="image/x-icon" href="{{favicon}}">
-  <style>{{style}}</style>
+  <link rel="icon" type="image/x-icon" href="{{favicon-data}}">
+  <style>
+
+
+  </style>
 </head>
 
 <body id="vs-dark-ui">
@@ -36,7 +39,7 @@
         <div class="row">
           <div class="col-five tab-full bottom-links">
             <div class="credits">
-              <p>We apologize for any inconvenience</p>
+              <p style="line-height:1.2em;">We apologize for any inconvenience. Please check our home page for support and other options.</p>
             </div>
           </div>
         </div>
@@ -46,7 +49,16 @@
   <div id="preloader">
     <div id="loader"></div>
   </div><a href="http://theoatmeal.com/comics/state_web_summer#tumblr" id="tbservers"></a>
-  <script>{{script}}</script>
+  <div class="pg-canvas" />
+  <!--
+  MOCK ITEMS TO PREVENT PURIFY-CSS FROM PURGING RULES
+  -->
+  <div class="ui-dialog">
+  <div class="ui-widget-overlay">
+  <script>
+
+
+  </script>
 </body>
 
 </html>

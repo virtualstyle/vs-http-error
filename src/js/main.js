@@ -101,10 +101,13 @@
 	$('.main-content-particle-js').particleground({
 	    dotColor: '#20acf7',
 	    lineColor: '#04a0f4',
-	    particleRadius: 6,
+	    particleRadius: 7,
 	    curveLines: true,
-	    density: 9000,
-	    proximity: 100
+	    density: 3500,
+	    proximity: 100,
+			curvedLines: true,
+			minSpeed: .6,
+			maxSpeed: 1.5
 	});
 
 

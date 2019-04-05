@@ -13,6 +13,16 @@
 #tbservers:hover {
   background-image: url($tbservershover);
 }
+
+#vs-dark-ui .ui-dialog {
+  z-index:999999;
+}
+
+#{$bodyId} .ui-widget-overlay {
+  background-color: $vsblue-darkest;
+  opacity: .6;
+}
+
 //@extend-elements
 //original selectors
 //sub, sup
@@ -1737,7 +1747,7 @@ label {
 			line-height: 3rem;
 			color: $white_20;
 			a {
-				color: $white_20;
+				color: $white_40;
 				display: inline-block;
 				border-bottom: 1px dotted $white_10;
 				&:hover {
@@ -1745,6 +1755,9 @@ label {
 				}
 				&:focus {
 					color: $white;
+				}
+				&:visited {
+					color: $white_40;
 				}
 			}
 		}

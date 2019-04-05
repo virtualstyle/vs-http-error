@@ -240,11 +240,10 @@ $( document ).ready(function() {
 
   });*/
 
-  $(document).on('dblclick', function(){
-
+  $('#contact').on('click', function(){
     $('#dialog').remove();
-    var dialog = $('<div id="dialog"><p>Feel free to fill out this form and press this button. I\'m sure what you think will happen will happen.</p><form class="pure-form"><fieldset><legend>Shout into the tube below. Maybe The Wizard will hear you!</legend><input type="email" placeholder="Email"><input type="text" placeholder="Subject"><textarea placeholder="Message"></textarea></fieldset></form></div>');
 
+    var dialog = $('<div id="dialog"><p>Feel free to fill out this form and press this button. <b>Sure</b> what you think will happen will happen.</p><form class="pure-form"><fieldset><legend>Shout into the tube below. Maybe The Wizard will hear you!</legend><input type="email" placeholder="Email"><input type="text" placeholder="Subject"><textarea placeholder="Message"></textarea></fieldset></form></div>');
     $('body').append(dialog);
 
     dialog.dialog({
@@ -265,8 +264,45 @@ $( document ).ready(function() {
 
               // will fade out the whole DIV that covers the website.
               $("#preloader").delay(120).fadeOut("slow");
-              alert('Yep, that TOTALLY did something! SOMEONE\'s gonna hear about this!');
+              //alert('Yep, that TOTALLY did something! SOMEONE\'s gonna hear about this!');
+              resultDialog.dialog( "open" );
             });
+
+          }
+
+          // Uncommenting the following line would hide the text,
+          // resulting in the label being used as a tooltip
+          //showText: false
+        }
+      ]
+    });
+
+    var resultDialog = $('<div id="dialog"><p>Yep, that TOTALLY did something! SOMEONE\'s gonna hear about this!</p><p>No <b>way</b> that was just $("#loader").delay(750).fadeOut("slow"), or anything!</p></div>');
+    $('body').append(resultDialog);
+
+    resultDialog.dialog({
+      autoOpen: false,
+      title: 'You Contacted Someone About Something!',
+      modal:true,
+      width: "77%",
+      maxWidth: "680px",
+      buttons: [
+        {
+          text: "KTHXBAI",
+          icon: "ui-icon-heart",
+          click: function() {
+            //$("#preloader").show();
+            $( this ).dialog( "close" );
+            //$("#loader").show();
+            //$("#loader").delay(750).fadeOut("slow", function(){
+
+              // will fade out the whole DIV that covers the website.
+              //$("#preloader").delay(120).fadeOut("slow");
+              //alert('Yep, that TOTALLY did something! SOMEONE\'s gonna hear about this!');
+
+
+
+            //});
 
           }
 

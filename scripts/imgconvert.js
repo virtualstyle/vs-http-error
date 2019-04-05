@@ -5,6 +5,7 @@ const path = require('path');
 const datauri = require('../node_modules/datauri');
 const git = require('simple-git/promise');
 const gitPath = path.resolve(__dirname, '..');
+const bundlecss = require('./bundlecss');
 
 const convertDir = function convertDir(imgpath, scsspath, changedfiles, uris = {},  fileNameToVarName = {}) {
 
@@ -77,6 +78,14 @@ async function getGitStatus (workingDir) {
 
 module.exports.imageConvert = async function (imgpath, scsspath, updateall = false) {
 
+  if(imgpath.charAt(imgpath.length - 1)!== '/') {
+    imgpath += '/';
+  }
+
+  if(scsspath.charAt(scsspath.length - 1)!== '/') {
+    scsspath += '/';
+  }
+
   if(!fs.existsSync(imgpath)) {
     throw new ReferenceError('First argument to imageConvert must be a valid file or directory.');
   }
@@ -125,7 +134,6 @@ module.exports.imageConvert = async function (imgpath, scsspath, updateall = fal
   Object.keys(uris).forEach(filepath => {
     const scssfilename = process.cwd() + '/' + scsspath + '_IMG_' + path.basename(filepath).replace(/\.(png|jpg|jpeg|gif|svg)/, '.scss');
     const scssvarname = path.basename(filepath).replace(/\.(png|jpg|jpeg|gif|svg)/, '');
-    //fileNameToVarName[path.basename(filepath)] = scssvarname;
     fs.writeFile(
       scssfilename,
       `\$${scssvarname}: '${uris[filepath]}';`,
@@ -136,43 +144,7 @@ module.exports.imageConvert = async function (imgpath, scsspath, updateall = fal
     });
   });
 
-  // Fix import statement in error.scss
-  let scss = fs.readFileSync('src/scss/error.scss', 'utf8');
-  const exportNames = [];
-  Object.keys(fileNameToVarName).forEach(f => {
-    exportNames.push(fileNameToVarName[f].replace('_IMG_', 'IMG_'));
-  });
-  exportNames.push("jquery-ui");
-  exportNames.push("pure");
-  exportNames.push("main");
-  let newimportlines = '// Dynamic Import - do not edit\n@import "' + exportNames.join('", "') + '";\n';
-  scss = scss.replace(/\/\/ Dynamic Import - do not edit\n.*\n/, newimportlines);
-  fs.writeFile(
-    `src/scss/error.scss`,
-    scss,
-    function(err) {
-      if(err) {
-        return console.log(err);
-      }
-  });
-
-  // Replace occurrences of filenames with the variables containing data URIs
-  const contents = fs.readdirSync('src/scss');
-  for (var i in contents) {
-    let scss = fs.readFileSync(`src/scss/${contents[i]}`, 'utf8');
-    Object.keys(fileNameToVarName).forEach(f => {
-      const regex = new RegExp("url(\'*.*" + f + "\'*)", 'g');
-      const varname = 'url($' + fileNameToVarName[f].replace('_IMG_', '');
-      scss = scss.replace(regex, varname);
-    });
-    fs.writeFile(
-      `src/scss/${contents[i]}`,
-      scss,
-      function(err) {
-        if(err) {
-          return console.log(err);
-        }
-    });
-  }
+  bundlecss.scssImportStatement(fileNameToVarName);
+  bundlecss.scssReplaceFilenamesWithVars(fileNameToVarName);
 
 };
