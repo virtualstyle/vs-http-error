@@ -18,9 +18,9 @@
   z-index:999999;
 }
 
-#{$bodyId} .ui-widget-overlay {
+#vs-dark-ui .ui-widget-overlay {
   background-color: $vsblue-darkest;
-  opacity: .6;
+  opacity: .5;
 }
 
 //@extend-elements
@@ -159,6 +159,11 @@ header {
     }
 	}
 }
+
+#flare {
+  background-image: url($logoflare);
+}
+
 hgroup {
 	display: block;
 }

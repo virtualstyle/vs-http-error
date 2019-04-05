@@ -240,33 +240,88 @@ $( document ).ready(function() {
 
   });*/
 
+  var errorCount = 0;
+
+  var errorMessages = [
+    'You must squint, turn around twice, and spit to validate form submission.',
+    'Name field cannot contain a name.',
+    'Your shoes are untied.',
+    'What was that? Did you see that?',
+    'Bill Gates said no internet for you today.',
+    'You REALLY clicked submit on this form?',
+    'We\'re TOTALLY selling your info. Thanks.',
+    'Enter your bank account number, your credit card number, and your mother\'s maiden name to continue.',
+    'Just a sec, I gotta take this...',
+    'Do you smell that?',
+    'You MUST NOT fart while clicking submit!'
+  ];
+
+  var curMsg = '';
+
   $('#contact').on('click', function(){
     $('#dialog').remove();
 
-    var dialog = $('<div id="dialog"><p>Feel free to fill out this form and press this button. <b>Sure</b> what you think will happen will happen.</p><form class="pure-form"><fieldset><legend>Shout into the tube below. Maybe The Wizard will hear you!</legend><input type="email" placeholder="Email"><input type="text" placeholder="Subject"><textarea placeholder="Message"></textarea></fieldset></form></div>');
+    var dialog = $('<div id="dialog" style="padding:24px;"><p style="margin-bottom:12px;">Feel free to fill out this form and press this button. What you think will happen will happen. <b>Sure</b> it will.</p><form class="pure-form"><fieldset><p><i>Shout into the tube below.<br>Maybe The Wizard will hear you!</i></p><input type="email" placeholder="Email"><input type="text" placeholder="Subject"><textarea placeholder="Message"></textarea></fieldset></form></div>');
     $('body').append(dialog);
 
     dialog.dialog({
       autoOpen: false,
       title: 'Contact Someone About Something',
       modal:true,
-      width: "77%",
-      maxWidth: "680px",
+      width: "40%",
+      maxWidth: "480px",
+      close: function() {
+        $('.logo a').attr('id', '');
+      },
       buttons: [
         {
-          text: "Ok",
-          icon: "ui-icon-heart",
+          text: "Sell My Data",
+          icon: "ui-icon-trash",
           click: function() {
-            $("#preloader").show();
-            $( this ).dialog( "close" );
-            $("#loader").show();
-            $("#loader").delay(750).fadeOut("slow", function(){
 
-              // will fade out the whole DIV that covers the website.
-              $("#preloader").delay(120).fadeOut("slow");
-              //alert('Yep, that TOTALLY did something! SOMEONE\'s gonna hear about this!');
-              resultDialog.dialog( "open" );
-            });
+            if(errorCount < errorMessages.length && errorCount < 4) {
+              if ($("#errmsg").hasClass('ui-dialog-content')) {
+                $('#errmsg').dialog( "close" );
+              }
+              var rand = Math.floor(Math.random() * (errorMessages.length -1));
+              var msg = errorMessages.splice(rand, 1)[0];
+              var errdialog = $('<div id="errdialog" style="padding:24px;"><p style="margin-bottom:12px;" id="errmsg">' + msg + '</p></div>');
+              $('body').append(errdialog);
+
+              errdialog.dialog({
+                autoOpen: false,
+                title: 'USER ERROR: You screwed up the input!',
+                modal:true,
+                width: "33%",
+                maxWidth: "440px",
+                buttons: [
+                  {
+                    text: "I Know, I Messed Up, Let Me Try Again",
+                    icon: "ui-icon-transferthick-e-w",
+                    click: function() {
+                      $( this ).dialog( "close" );
+                    },
+                  }
+                ]
+              });
+
+              errdialog.dialog( "open" );
+              $('#errmsg').text(msg);
+              errorCount++;
+
+            } else {
+
+              $("#preloader").show();
+              $( this ).dialog( "close" );
+              $("#loader").show();
+              $("#loader").delay(750).fadeOut("slow", function(){
+
+                // will fade out the whole DIV that covers the website.
+                $("#preloader").delay(120).fadeOut("slow");
+                resultDialog.dialog( "open" );
+              });
+
+            }
 
           }
 
@@ -277,42 +332,26 @@ $( document ).ready(function() {
       ]
     });
 
-    var resultDialog = $('<div id="dialog"><p>Yep, that TOTALLY did something! SOMEONE\'s gonna hear about this!</p><p>No <b>way</b> that was just $("#loader").delay(750).fadeOut("slow"), or anything!</p></div>');
+    var resultDialog = $('<div id="resultdialog" style="padding:24px;"><p style="margin-bottom:12px;">Yep, that TOTALLY did something! SOMEONE\'s gonna hear about this!<br>No <b>way</b> that was just $("#loader").delay(750).fadeOut("slow"), or anything!</p></div>');
     $('body').append(resultDialog);
 
     resultDialog.dialog({
       autoOpen: false,
       title: 'You Contacted Someone About Something!',
       modal:true,
-      width: "77%",
+      width: "60%",
       maxWidth: "680px",
       buttons: [
         {
           text: "KTHXBAI",
           icon: "ui-icon-heart",
           click: function() {
-            //$("#preloader").show();
             $( this ).dialog( "close" );
-            //$("#loader").show();
-            //$("#loader").delay(750).fadeOut("slow", function(){
-
-              // will fade out the whole DIV that covers the website.
-              //$("#preloader").delay(120).fadeOut("slow");
-              //alert('Yep, that TOTALLY did something! SOMEONE\'s gonna hear about this!');
-
-
-
-            //});
-
           }
-
-          // Uncommenting the following line would hide the text,
-          // resulting in the label being used as a tooltip
-          //showText: false
         }
       ]
     });
-
+    $('.logo a').attr('id', 'flare');
     dialog.dialog( "open" );
 
   });
